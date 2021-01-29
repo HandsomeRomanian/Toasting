@@ -1,0 +1,37 @@
+#toast {
+  position: fixed;
+  display: none;
+
+  font-size: medium;
+  font-size: larger;
+  font-family: "Roboto", sans-serif;
+  font-size: 3;
+
+  padding: 10px;
+  z-index: 999;
+
+  min-height: 4em;
+  min-width: 7em;
+  max-width: 20%;
+
+  background-color: aquamarine;
+
+  border-radius: 0px 5px 15px 5px;
+  border: 3px solid black;
+
+  h1 {
+    margin: 6px;
+    pointer-events: none;
+    font-size: larger;
+    text-align: center;
+  }
+  p {
+    margin: 6px;
+    pointer-events: none;
+    text-align: center;
+  }
+  .button {
+    min-width: 0;
+    min-height: 0;
+  }
+}
