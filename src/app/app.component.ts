@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit, ViewContainerRef } from '@angular/core';
-import { ToastingService } from './toasting/toasting.service';
+import { ToastingService } from 'toasting';
 
 @Component({
   selector: 'app-root',

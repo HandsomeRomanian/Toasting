@@ -1,9 +1,0 @@
-<div id="toast" class="theme-panel color-purple" (click)="dismiss()" #toast>
-    <h1 id="toast-title">Toast Title</h1>
-    <p id="toast-text">Il y a eu un probleme avec la transmisdfjsdjf askdoba</p>
-    <div style="display: flex; justify-content: center;">
-        <button *ngFor="let button of buttons" (click)="button.callback('bob')"
-            class="button {{button.cssClass || 'theme-button-primary' }}">
-            {{button.text}} </button>
-    </div>
-</div>

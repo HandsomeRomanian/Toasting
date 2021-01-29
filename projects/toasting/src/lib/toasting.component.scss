@@ -2,27 +2,24 @@
   position: fixed;
   display: none;
 
-  font-size: medium;
-  font-size: larger;
   font-family: "Roboto", sans-serif;
-  font-size: 3;
 
   padding: 10px;
   z-index: 999;
 
   min-height: 4em;
-  min-width: 7em;
-  max-width: 20%;
+  max-width: 25%;
+  max-height: 15%;
 
-  background-color: aquamarine;
+  border-radius: 2px;
+  background-color: rgb(26, 161, 26);
 
-  border-radius: 0px 5px 15px 5px;
-  border: 3px solid black;
+  //border: 3px solid black;
 
   h1 {
+    font-size: 20px !important;
     margin: 6px;
     pointer-events: none;
-    font-size: larger;
     text-align: center;
   }
   p {

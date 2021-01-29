@@ -1,0 +1,15 @@
+<div id="toast" class="theme-panel color-purple" #toast>
+
+    <h1 id="toast-title">Toast Title</h1>
+    <p id="toast-text">Toast's content</p>
+
+
+    <div style="display: flex; justify-content: center;">
+
+        <button *ngFor="let button of buttons" (click)="dismiss(button)" type="button"
+            class="button {{button.cssClass}}">
+            {{button.text}}
+        </button>
+    </div>
+
+</div>

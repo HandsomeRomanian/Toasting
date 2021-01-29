@@ -1,8 +1,8 @@
-import { DOCUMENT } from '@angular/common';
-import { Injectable, Inject, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
+import { ComponentFactoryResolver, Injectable, ViewContainerRef } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Toast, ToastParams, ToastButton } from "./toast/toast";
-import { ToastComponent } from './toast/toast.component';
+import { Toast, ToastParams } from './toast';
+import { ToastingComponent } from './toasting.component';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class ToastingService {
 
   addDynamicComponent() {
     const factory = this.factoryResolver
-      .resolveComponentFactory(ToastComponent)
+      .resolveComponentFactory(ToastingComponent)
     const component = factory
       .create(this.rootViewContainer.parentInjector)
     this.rootViewContainer.insert(component.hostView)
@@ -34,9 +34,7 @@ export class ToastingService {
 
     let toast;
     params ? toast = new Toast(title, text, params) : toast = new Toast(title, text);
-    console.log(toast);
     this._toastSubject.next(toast);
     this.factoryResolver
   }
-
 }

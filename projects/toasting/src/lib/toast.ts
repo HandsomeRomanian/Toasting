@@ -33,7 +33,8 @@ export interface ToastParams {
 
 export interface ToastButton {
 
-    text?: string;
+    text: string;
+    closeBTN?: boolean;
     callback?: any;
     cssClass?: string;
 

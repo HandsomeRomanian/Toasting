@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HorizontalPosition } from '../toasting/toast/toast';
-import { ToastingService } from '../toasting/toasting.service';
+import { ToastingService, HorizontalPosition } from 'toasting';
 
 @Component({
   selector: 'app-main',
@@ -10,7 +9,6 @@ import { ToastingService } from '../toasting/toasting.service';
 export class MainComponent implements OnInit {
 
   constructor(private service: ToastingService) {
-    console.log("main");
 
   }
 
@@ -22,13 +20,19 @@ export class MainComponent implements OnInit {
       {
         duration: 100000,
         horizontalPosition: HorizontalPosition.Right,
+        clickDismiss: true,
         buttons: [
           {
-            text: "Allo",
-            callback: alert
+            text: "Close",
+            callback: this.test
           }
         ]
       })
+  }
+
+  test(test) {
+    console.log(test);
+
   }
 
 }

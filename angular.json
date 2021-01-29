@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "toasting": {
+      "projectType": "library",
+      "root": "projects/toasting",
+      "sourceRoot": "projects/toasting/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/toasting/tsconfig.lib.json",
+            "project": "projects/toasting/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/toasting/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/toasting/src/test.ts",
+            "tsConfig": "projects/toasting/tsconfig.spec.json",
+            "karmaConfig": "projects/toasting/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/toasting/tsconfig.lib.json",
+              "projects/toasting/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "customModules"
 }

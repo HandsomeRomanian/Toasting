@@ -1,13 +1,13 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { ToastingService } from "../toasting.service";
-import { VerticalPosition, HorizontalPosition, Toast, ToastButton, ToastParams } from "./toast";
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ToastingService } from '../public-api';
+import { HorizontalPosition, Toast, ToastButton, ToastParams, VerticalPosition } from './toast';
 
 @Component({
   selector: 'app-toasting',
-  templateUrl: './toast.component.html',
-  styleUrls: ['./toast.component.scss']
+  templateUrl: 'toasting.component.html',
+  styleUrls: ['toasting.component.scss']
 })
-export class ToastComponent implements AfterViewInit {
+export class ToastingComponent implements AfterViewInit {
 
   @ViewChild('toast') toastContainer: ElementRef;
   toastStyle;
@@ -18,7 +18,6 @@ export class ToastComponent implements AfterViewInit {
   buttons: ToastButton[];
 
   constructor(private service: ToastingService) {
-    console.log("toast loaded");
 
     this.service.subject$.subscribe(newToast => {
 
@@ -37,9 +36,9 @@ export class ToastComponent implements AfterViewInit {
         newToast.params.verticalPosition ? this.toastStyle.background = newToast.params.color : "";
 
         newToast.params.clickDismiss ? this.clickDismiss = newToast.params.clickDismiss : this.clickDismiss = false;
-        
+
         this.buttons = newToast.params.buttons;
-        
+
         this.setLocation(newToast.params);
 
         this.setDelay(newToast.params.duration)
@@ -60,8 +59,10 @@ export class ToastComponent implements AfterViewInit {
       });
   }
 
-  dismiss() {
-    if ((!this.buttons || this.buttons.length < 1) && this.clickDismiss) {
+  dismiss(btn?: ToastButton) {
+    console.log(btn);
+
+    if (((!this.buttons || this.buttons.length < 1) && this.clickDismiss) || (btn && btn.closeBTN)) {
       this.resetStyle();
     }
 
